@@ -1,52 +1,74 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Mission } from "./types/mission";
-import Home from './pages/Home';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import CreateMission from './pages/CreateMission';
 import ViewMissions from './pages/ViewMissions';
-import { fetchMissions, addMission, deleteMission } from "./services/apiService";
-import MissionList from "./components/MissionList";
-import MissionForm from "./components/MissionForm";
+import { Mission } from './types/mission';
 
 const App: React.FC = () => {
-    const [missions, setMissions] = useState<Mission[]>([]);
+  const [missions, setMissions] = useState<Mission[]>([]);
 
-    useEffect(() => {
-        fetchMissions().then(setMissions);
-    }, []);
+  const handleAddMission = async (mission: Omit<Mission, 'id'>) => {
+    const newMission = { ...mission, id: missions.length + 1 }; // Генерация id
+    setMissions([...missions, newMission]);
+  };
 
-    const handleAddMission = async (mission: Omit<Mission, "id">) => {
-        const newMission = await addMission(mission);
-        setMissions(prev => [...prev, newMission]);
-    };
+  const handleDeleteMission = async (id: number) => {
+    setMissions(missions.filter((mission) => mission.id !== id));
+  };
 
-    const handleDeleteMission = async (id: number) => {
-        await deleteMission(id);
-        setMissions(prev => prev.filter(mission => mission.id !== id));
-    };
+  return (
+    <Router>
+      <div>
+        {/* Навигационное меню */}
+        <nav style={navStyle}>
+          <ul>
+            <li>
+              <Link to="/" style={linkStyle}>Главная</Link>
+            </li>
+            <li>
+              <Link to="/create-mission" style={linkStyle}>Создать миссию</Link>
+            </li>
+            <li>
+              <Link to="/view-missions" style={linkStyle}>Просмотр миссий</Link>
+            </li>
+          </ul>
+        </nav>
 
-    return (
-        <div>
-        <Router>
-            <nav style={{ marginBottom: '20px' }}>
-                <Link to="/" style={{ marginRight: '10px', color: '#00d1ff' }}>Главная</Link>
-                <Link to="/create" style={{ marginRight: '10px', color: '#00d1ff' }}>Создать миссию</Link>
-                <Link to="/view" style={{ color: '#00d1ff' }}>Просмотреть миссии</Link>
-            </nav>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/create" element={<CreateMission />} />
-                <Route path="/view" element={<ViewMissions />} />
-            </Routes>
-        </Router>
-        <div>
-            <h1>Планирование космических миссий</h1>
-            <MissionForm onAddMission={handleAddMission} />
-            <MissionList missions={missions} onDeleteMission={handleDeleteMission} />
-        </div>
-        </div>
+        {/* Роуты */}
+        <Routes>
+          {/* Главная страница */}
+          <Route path="/" element={<h1>Добро пожаловать на главную страницу!</h1>} />
 
-    );
+          {/* Страница создания миссии */}
+          <Route
+            path="/create-mission"
+            element={<CreateMission onAddMission={handleAddMission} />}
+          />
+
+          {/* Страница просмотра миссий */}
+          <Route
+            path="/view-missions"
+            element={<ViewMissions missions={missions} onDeleteMission={handleDeleteMission} />}
+          />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
+
+// Стили для навигации
+const navStyle: React.CSSProperties = {
+  backgroundColor: '#1f1f3f',
+  padding: '10px',
+  color: '#fff',
+  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+};
+
+const linkStyle: React.CSSProperties = {
+  marginRight: '15px',
+  textDecoration: 'none',
+  color: '#fff',
+  fontWeight: 'bold',
 };
 
 export default App;

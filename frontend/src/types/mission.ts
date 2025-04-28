@@ -1,8 +1,9 @@
+// types/mission.ts
+
 export interface Mission {
     id: number;
     name: string;
-    startDate: string;
-    goal: string;
-    crew: string[];
+    date: string;
+    target: string;
   }
   

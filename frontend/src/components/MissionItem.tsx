@@ -1,19 +1,22 @@
-import React from "react";
-import { Mission } from "../types/mission";
+// components/MissionItem.tsx
+import React from 'react';
 
-interface Props {
-    mission: Mission;
-    onDelete: () => void;
+interface MissionItemProps {
+  name: string;
+  date: string;
+  target: string;
+  onDelete: () => Promise<void>;
 }
 
-const MissionItem: React.FC<Props> = ({ mission, onDelete }) => (
+const MissionItem: React.FC<MissionItemProps> = ({ name, date, target, onDelete }) => {
+  return (
     <div>
-        <h3>{mission.name}</h3>
-        <p>Дата старта: {mission.startDate}</p>
-        <p>Цель: {mission.goal}</p>
-        <p>Экипаж: {mission.crew.join(", ")}</p>
-        <button onClick={onDelete}>Удалить</button>
+      <h3>{name}</h3>
+      <p>{date}</p>
+      <p>{target}</p>
+      <button onClick={onDelete}>Удалить</button>
     </div>
-);
+  );
+};
 
 export default MissionItem;

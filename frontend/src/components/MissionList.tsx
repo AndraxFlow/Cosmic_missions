@@ -1,18 +1,27 @@
-import React from "react";
-import { Mission } from "../types/mission";
-import MissionItem from "./MissionItem";
+// components/MissionList.tsx
+import React from 'react';
+import MissionItem from './MissionItem';
+import { Mission } from '../types/mission';
 
-interface Props {
-    missions: Mission[];
-    onDeleteMission: (id: number) => void;
+interface MissionListProps {
+  missions: Mission[];
+  onDeleteMission: (id: number) => Promise<void>;
 }
 
-const MissionList: React.FC<Props> = ({ missions, onDeleteMission }) => (
+const MissionList: React.FC<MissionListProps> = ({ missions, onDeleteMission }) => {
+  return (
     <div>
-        {missions.map(mission => (
-            <MissionItem key={mission.id} mission={mission} onDelete={() => onDeleteMission(mission.id)} />
-        ))}
+      {missions.map((mission) => (
+        <MissionItem
+          key={mission.id}
+          name={mission.name}
+          date={mission.date}
+          target={mission.target}
+          onDelete={() => onDeleteMission(mission.id)} // Передаем функцию удаления
+        />
+      ))}
     </div>
-);
+  );
+};
 
 export default MissionList;

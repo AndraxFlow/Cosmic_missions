@@ -1,10 +1,17 @@
+// pages/CreateMission.tsx
 import React from 'react';
+import MissionForm from '../components/MissionForm';
+import { Mission } from '../types/mission';
 
-const CreateMission = () => {
+interface CreateMissionProps {
+  onAddMission: (mission: Omit<Mission, 'id'>) => Promise<void>;
+}
+
+const CreateMission: React.FC<CreateMissionProps> = ({ onAddMission }) => {
   return (
     <div>
-      <h1>🛠️ Создать новую миссию</h1>
-      <p>Здесь будет форма для создания миссий.</p>
+      <h1>Создать миссию</h1>
+      <MissionForm onAddMission={onAddMission} />
     </div>
   );
 };
