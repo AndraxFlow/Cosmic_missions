@@ -1,55 +1,83 @@
 /* Основной стиль для всего приложения */
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1f1f3f;
+  padding: 15px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-icon {
+  font-size: 28px;
+  color: #00d1ff;
+  margin-right: 10px;
+}
+
+.nav-logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
 body {
-    background: linear-gradient(135deg, #0d0d2b, #1f1f3f); /* Градиент космоса */
-    color: #ffffff;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+  background: linear-gradient(135deg, #0d0d2b, #1f1f3f); /* Градиент космоса */
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
   
-  /* Стили для заголовков */
-  h1, h2 {
-    font-family: 'Helvetica', sans-serif;
-    color: #00d1ff; /* Космический синий */
-    text-shadow: 0 0 10px rgba(0, 209, 255, 0.5); /* Эффект свечения */
-  }
-  
-  /* Стили для ссылок */
-  a {
-    color: #00d1ff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Стили для кнопок */
-  button {
-    background-color: #00d1ff;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0088cc;
-    box-shadow: 0 0 10px rgba(0, 209, 255, 0.8);
-  }
-  
-  /* Добавим эффект звёзд на фоне */
-  body {
-    background: url('https://www.transparenttextures.com/patterns/stardust.png'), linear-gradient(135deg, #0d0d2b, #1f1f3f);
-    background-repeat: repeat;
-    background-attachment: fixed;
-  }
-  
-  /* Добавляем пространство между элементами */
-  div {
-    margin-bottom: 20px;
-  }
-  
+/* Стили для заголовков */
+h1, h2 {
+  font-family: 'Helvetica', sans-serif;
+  color: #00d1ff; /* Космический синий */
+  text-shadow: 0 0 10px rgba(0, 209, 255, 0.5); /* Эффект свечения */
+}
+
+/* Стили для ссылок */
+a {
+  color: #00d1ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Стили для кнопок */
+button {
+  background-color: #00d1ff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0088cc;
+  box-shadow: 0 0 10px rgba(0, 209, 255, 0.8);
+}
+
+/* Добавим эффект звёзд на фоне */
+body {
+  background: url('https://www.transparenttextures.com/patterns/stardust.png'), linear-gradient(135deg, #0d0d2b, #1f1f3f);
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+/* Добавляем пространство между элементами */
+div {
+  margin-bottom: 20px;
+}

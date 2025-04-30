@@ -1,3 +1,4 @@
 node_modules/
 dist/
 missions.json
+frontend/node_modules/

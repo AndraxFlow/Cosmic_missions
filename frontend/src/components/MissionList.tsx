@@ -1,4 +1,4 @@
-// components/MissionList.tsx
+// src/components/MissionList.tsx
 import React from 'react';
 import MissionItem from './MissionItem';
 import { Mission } from '../types/mission';
@@ -6,18 +6,18 @@ import { Mission } from '../types/mission';
 interface MissionListProps {
   missions: Mission[];
   onDeleteMission: (id: number) => Promise<void>;
+  onUpdateStatus: (id: number) => void;
 }
 
-const MissionList: React.FC<MissionListProps> = ({ missions, onDeleteMission }) => {
+const MissionList: React.FC<MissionListProps> = ({ missions, onDeleteMission, onUpdateStatus }) => {
   return (
     <div>
       {missions.map((mission) => (
         <MissionItem
           key={mission.id}
-          name={mission.name}
-          date={mission.date}
-          target={mission.target}
-          onDelete={() => onDeleteMission(mission.id)} // Передаем функцию удаления
+          mission={mission}
+          onDelete={() => onDeleteMission(mission.id)}
+          onUpdateStatus={() => onUpdateStatus(mission.id)}
         />
       ))}
     </div>

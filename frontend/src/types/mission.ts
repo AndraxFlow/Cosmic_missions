@@ -5,5 +5,6 @@ export interface Mission {
     name: string;
     date: string;
     target: string;
+    status: 'Запланировано' | 'В подготовке' | 'В процессе' | 'Завершено';  
   }
   
