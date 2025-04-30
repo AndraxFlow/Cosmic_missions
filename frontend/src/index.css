@@ -63,6 +63,7 @@ button {
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
+  touch-action: 'manipulation';
 }
 
 button:hover {
