@@ -1,0 +1,41 @@
+
+.explode-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #00d1ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .explosion {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #ffd500, #ff0000, transparent);
+    border-radius: 50%;
+    animation: boom 1s ease-out;
+    z-index: 0;
+  }
+  
+  @keyframes boom {
+    0% {
+      opacity: 1;
+      transform: scale(0.2) translateX(-50%);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2) translateX(0%);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(2.5) translateX(-20%);
+    }
+  }
+  
