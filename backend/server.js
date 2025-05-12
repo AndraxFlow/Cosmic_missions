@@ -7,6 +7,7 @@ const app = express();
 const PORT = 5000;
 
 const filePath = path.join(__dirname, 'missions.json');
+const logsPath =  path.join(__dirname,'logs.json');
 
 
 app.use(cors());
@@ -33,13 +34,30 @@ const writeMissions = (data) => {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 };
 
-// ✅ Получить все миссии
+
+// Получить все логи
+app.get('/logs', (req, res) => {
+  const data = fs.readFileSync(logsPath);
+  res.json(JSON.parse(data));
+});
+
+// Добавить лог
+app.post('/logs', (req, res) => {
+  const newLog = req.body;
+  const data = JSON.parse(fs.readFileSync(logsPath));
+  newLog.id = Date.now();
+  data.push(newLog);
+  fs.writeFileSync(logsPath, JSON.stringify(data, null, 2));
+  res.status(201).json(newLog);
+});
+
+// Получить все миссии
 app.get('/missions', (req, res) => {
   const missions = readMissions();
   res.json(missions);
 });
 
-// ✅ Добавить миссию
+// Добавить миссию
 app.post('/missions', (req, res) => {
   const newMission = req.body;
   const missions = readMissions();
@@ -49,7 +67,7 @@ app.post('/missions', (req, res) => {
   res.status(201).json(newMission);
 });
 
-// ✅ Обновить статус миссии
+// Обновить статус миссии
 app.put('/missions/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const { status } = req.body;
@@ -64,7 +82,7 @@ app.put('/missions/:id', (req, res) => {
   }
 });
 
-// ✅ Удалить миссию
+// Удалить миссию
 app.delete('/missions/:id', (req, res) => {
   const id = parseInt(req.params.id);
   let missions = readMissions();
@@ -73,7 +91,7 @@ app.delete('/missions/:id', (req, res) => {
   res.status(204).send();
 });
 
-// ✅ Запуск сервера
+// Запуск сервера
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
