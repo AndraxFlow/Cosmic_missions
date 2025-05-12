@@ -8,6 +8,7 @@ const PORT = 5000;
 
 const filePath = path.join(__dirname, 'missions.json');
 
+
 app.use(cors());
 app.use(express.json());
 
