@@ -24,7 +24,7 @@ const TargetsPage: React.FC = () => {
     : [];
 
   return (
-    <div>
+    <div className="card">
       <h1>Каталог целей</h1>
       <TargetList targets={uniqueTargets} onSelectTarget={handleSelectTarget} />
       {selectedTarget && (

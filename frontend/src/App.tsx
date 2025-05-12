@@ -106,7 +106,7 @@ const App: React.FC = () => {
     <Router>
       <div>
         <nav style={navStyle}>
-          <div style={logoContainer}>
+          <div style={logoContainer} >
             <FaRocket style={logoStyle} />
             <h1 style={logoText}>Cosmic Missions</h1>
           </div>
