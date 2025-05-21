@@ -1,10 +1,15 @@
 {
   "name": "cosmic_missions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ],
   "scripts": {
-    "test": "cd frontend && jest"
+    "test": "npm run test --workspace frontend",
+    "start":"npm run start --workspace frontend"
   },
   "keywords": [],
   "author": "",
