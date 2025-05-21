@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 
 const Home = () => {
   return (
-    <div style={{ textAlign: 'inherit', padding: '50px 20px' }}>
+    <div className="card" style={{ textAlign: 'inherit', padding: '50px 20px' }}>
       <h1>Добро пожаловать в Cosmic Missions!</h1>
       <p style={{ maxWidth: '600px', margin: '20px auto', fontSize: '18px', lineHeight: '1.6' }}>
         Здесь вы можете планировать, создавать и отслеживать космические миссии.

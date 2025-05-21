@@ -9,7 +9,7 @@ interface CreateMissionProps {
 
 const CreateMission: React.FC<CreateMissionProps> = ({ onAddMission }) => {
   return (
-    <div>
+    <div className="card">
       <h1>Создать миссию</h1>
       <MissionForm onAddMission={onAddMission} />
     </div>

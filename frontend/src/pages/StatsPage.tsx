@@ -13,7 +13,7 @@ const StatsPage: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="card">
       <h1>Статистика по миссиям</h1>
       <StatusChart missions={missions} />
       <RecentMissions missions={missions} />

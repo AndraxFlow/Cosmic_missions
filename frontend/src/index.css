@@ -1,12 +1,12 @@
-/* Основной стиль для всего приложения */
 
+/* === НАВИГАЦИЯ === */
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #1f1f3f;
+  background-color: #1c1c3c;
   padding: 15px 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 209, 255, 0.1);
 }
 
 .nav-logo {
@@ -26,49 +26,61 @@ nav {
   color: #ffffff;
 }
 
-body {
-  background: linear-gradient(135deg, #0d0d2b, #1f1f3f); /* Градиент космоса */
-  color: #ffffff;
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-  
-/* Стили для заголовков */
-h1, h2 {
-  font-family: 'Helvetica', sans-serif;
-  color: #00d1ff; /* Космический синий */
-  text-shadow: 0 0 10px rgba(0, 209, 255, 0.5); /* Эффект свечения */
+/* === ЗАГОЛОВКИ === */
+h1, h2, h3 {
+  color: #00d1ff;
+  text-shadow: 0 0 10px rgba(0, 209, 255, 0.4);
+  margin-bottom: 10px;
 }
 
-/* Стили для ссылок */
+/* === КНОПКИ === */
+button {
+  background: linear-gradient(to right, #00d1ff, #8f00ff);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00d1ff88;
+}
+
+/* === КАРТОЧКИ === */
+.card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid #00d1ff40;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 209, 255, 0.05);
+}
+
+/* === ССЫЛКИ === */
 a {
   color: #00d1ff;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #ffffff;
   text-decoration: underline;
-}
-
-/* Стили для кнопок */
-button {
-  background-color: #00d1ff;
   color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  touch-action: 'manipulation';
 }
 
-button:hover {
-  background-color: #0088cc;
-  box-shadow: 0 0 10px rgba(0, 209, 255, 0.8);
+/* === ФОРМА === */
+input, textarea {
+  background-color: #1f1f3f;
+  color: #ffffff;
+  border: 1px solid #00d1ff44;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 /* Добавим эффект звёзд на фоне */
@@ -76,6 +88,9 @@ body {
   background: url('https://www.transparenttextures.com/patterns/stardust.png'), linear-gradient(135deg, #0d0d2b, #1f1f3f);
   background-repeat: repeat;
   background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  color: #e0f7ff;
 }
 
 /* Добавляем пространство между элементами */

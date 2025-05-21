@@ -17,7 +17,7 @@ const LogsPage: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="card">
       <h1>Журнал действий</h1>
       <LogList logs={logs} />
     </div>

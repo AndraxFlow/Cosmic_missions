@@ -11,7 +11,7 @@ interface ViewMissionsProps {
 
 const ViewMissions: React.FC<ViewMissionsProps> = ({ missions, onDeleteMission, onUpdateStatus }) => {
   return (
-    <div>
+    <div className="card">
       <h1>Просмотр миссий</h1>
       <MissionList
         missions={missions}
