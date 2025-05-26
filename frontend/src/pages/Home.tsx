@@ -15,7 +15,7 @@ const Home = () => {
         От идеи до запуска — управлять каждой стадией стало проще, чем когда-либо.
       </p>
       <div style={{ marginTop: '30px' }}>
-        <Link to="/create-mission">
+        <Link to="/create-mission" style={{ marginLeft: '10px' }}>
           <button style={buttonStyle}>🚀 Создать миссию</button>
         </Link>
         <Link to="/view-missions" style={{ marginLeft: '10px' }}>
@@ -23,7 +23,7 @@ const Home = () => {
         </Link>
       </div>
       <div style={{ marginTop: '30px' }}>
-         <Link to="/targets">
+         <Link to="/targets" style={{ marginLeft: '10px' }}>
         <button style={buttonStyle} >📜 Цели миссий</button>
         </Link>           
         <Link to="/stats" style={{ marginLeft: '10px' }}>

@@ -175,6 +175,7 @@ const navList: React.CSSProperties = {
   listStyle: 'none',
   display: 'flex',
   gap: '20px',
+  flexWrap:'wrap',
 };
 
 const navItem: React.CSSProperties = {

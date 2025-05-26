@@ -2,6 +2,7 @@
 import React from 'react';
 import { Mission } from '../types/mission';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import CustomLegend from './CustomLegend'; // импорт кастомной легенды
 
 interface Props {
   missions: Mission[];
@@ -21,23 +22,26 @@ const StatusChart: React.FC<Props> = ({ missions }) => {
   }));
 
   return (
-    <PieChart width={400} height={300}>
-      <Pie
-        data={data}
-        cx="50%"
-        cy="50%"
-        label
-        outerRadius={100}
-        dataKey="value"
-      >
-        {data.map((entry, index) => (
-          <Cell key={index} fill={COLORS[index % COLORS.length]} />
-        ))}
-      </Pie>
-      <Tooltip />
-      <Legend />
-    </PieChart>
+    <div className="chart-container">
+      <PieChart width={300} height={400}>
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          label
+          outerRadius={100}
+          dataKey="value"
+        >
+          {data.map((entry, index) => (
+            <Cell key={index} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+        <Tooltip />
+        <Legend content={<CustomLegend />} />
+      </PieChart>
+    </div>
   );
 };
 
 export default StatusChart;
+
